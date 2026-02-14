@@ -1,0 +1,27 @@
+{
+  "name": "chat-youapp",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "build": "pnpm -r --workspace-root=false run build",
+    "dev": "pnpm -r --workspace-root=false run dev",
+    "lint": "pnpm -r --workspace-root=false run lint",
+    "format": "pnpm -r --workspace-root=false run format",
+    "test": "pnpm -r --workspace-root=false run test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.29.3",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.55.0",
+    "@typescript-eslint/parser": "^8.55.0",
+    "eslint": "^10.0.0",
+    "prettier": "^3.8.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

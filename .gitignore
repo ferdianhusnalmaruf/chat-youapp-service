@@ -1,0 +1,13 @@
+# PACKAGE IGNORE
+/packages/common/dist
+
+# SERVICE IGNORE
+/services/auth-service/dist
+/services/auth-service/node_modules
+/services/gateway-service/dist
+/services/gateway-service/node_modules
+/services/user-service/dist
+/services/user-service/node_modules
+
+# MAIN FOLDER IGNORE
+/node_modules

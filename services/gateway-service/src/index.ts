@@ -11,7 +11,7 @@ const bootstrap = async () => {
     const port = env.GATEWAY_SERVICE_PORT;
 
     server.listen(port, () => {
-      logger.info({ port }, 'Auth service start running');
+      logger.info({ port }, 'Gateway service start running');
     });
 
     const shutdown = () => {

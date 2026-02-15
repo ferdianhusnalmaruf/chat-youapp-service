@@ -59,6 +59,7 @@ export const publishUserRegistered = (payload: AuthUserRegisteredPayload) => {
     { contentType: 'application/json', persistent: true },
   );
 
+  logger.info(`${event} event || published ${published}`);
   if (!published) {
     logger.warn('Failed to publish user registered event');
   }

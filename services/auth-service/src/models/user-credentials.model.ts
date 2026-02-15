@@ -1,22 +1,18 @@
-import { DataTypes, Model, Optional } from "sequelize";
-import { sequelize } from "@/db/sequelize";
+import { DataTypes, Model, Optional } from 'sequelize';
+import { sequelize } from '@/db/sequelize';
 
 export interface UserCredentialsAttributes {
   id: string;
   email: string;
   username: string;
   password: string;
-  //   birthday: Date;
-  //   height: number;
-  //   weight: number;
-  //   intersts: [string];
   createdAt: Date;
   updatedAt: Date;
 }
 
 export type UserCredentialsCreationAttributes = Optional<
   UserCredentialsAttributes,
-  "id" | "createdAt" | "updatedAt"
+  'id' | 'createdAt' | 'updatedAt'
 >;
 
 export class UserCredentials
@@ -49,6 +45,7 @@ UserCredentials.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
     password: {
       type: DataTypes.STRING,
@@ -67,6 +64,6 @@ UserCredentials.init(
   },
   {
     sequelize,
-    tableName: "user_credentials",
+    tableName: 'user_credentials',
   },
 );

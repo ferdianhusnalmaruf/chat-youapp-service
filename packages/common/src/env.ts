@@ -11,9 +11,12 @@ export const createEnv = <TSchema extends ZodRawShape>(
   schema: ZodObject<TSchema>,
   options: EnvOptions = {},
 ): SchemaOutput<TSchema> => {
+  console.log(`process env: ${String(process.env)}`);
   const { source = process.env, serviceName = 'service' } = options;
 
   const parsed = schema.safeParse(source);
+
+  console.log(`parsed: ${String(parsed)} && data ${parsed.data}`);
 
   if (!parsed.success) {
     const formatedErrors = parsed.error.format();

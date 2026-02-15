@@ -1,4 +1,18 @@
 services:
+  user-db:
+    image: postgres:16
+    container_name: chat-youapp-user-db
+    environment:
+      POSTGRES_DB: ${USER_DB_NAME:-chat_youapp_user_service}
+      POSTGRES_USER: ${USER_DB_USER:-chat_youapp_user_user}
+      POSTGRES_PASSWORD: ${USER_DB_PASSWORD:-chat_youapp_user_password}
+    ports:
+      - '${USER_DB_PORT:-5432}:5432'
+    volumes:
+      - user-db-data:/var/lib/postgresql/data
+    networks:
+      - chat-youapp-network
+
   rabbitmq:
     image: rabbitmq:3-management
     container_name: chat-youapp-rabbitmq
@@ -27,6 +41,7 @@ services:
       - chat-youapp-network
 
 volumes:
+  user-db-data:
   auth-db-data:
 
 networks:

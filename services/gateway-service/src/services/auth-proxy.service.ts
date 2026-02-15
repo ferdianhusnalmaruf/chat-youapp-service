@@ -22,12 +22,12 @@ export interface UserData {
   createdAt: string;
 }
 
-export interface AuthToken {
+export interface AuthTokens {
   accessToken: string;
   refreshToken: string;
 }
 
-export interface AuthResponse extends AuthToken {
+export interface AuthResponse extends AuthTokens {
   user: UserData;
 }
 
@@ -77,6 +77,32 @@ export const authProxyService = {
     try {
       const response = await client.post<AuthResponse>('/auth/register', payload, authHeader);
       return response.data;
+    } catch (error) {
+      return handleAxiosError(error);
+    }
+  },
+
+  async login(payload: LoginPayload): Promise<AuthTokens> {
+    try {
+      const response = await client.post<AuthTokens>('/auth/login', payload, authHeader);
+      return response.data;
+    } catch (error) {
+      return handleAxiosError(error);
+    }
+  },
+
+  async refreshToken(payload: RefreshPayload): Promise<AuthTokens> {
+    try {
+      const response = await client.post<AuthTokens>('/auth/refresh', payload, authHeader);
+      return response.data;
+    } catch (error) {
+      return handleAxiosError(error);
+    }
+  },
+
+  async revokeToken(payload: RevokePayload): Promise<void> {
+    try {
+      await client.post<void>('/auth/revoke', payload, authHeader);
     } catch (error) {
       return handleAxiosError(error);
     }

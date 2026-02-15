@@ -1,4 +1,4 @@
-import { z } from "@chat-youapp/common";
+import { z } from '@chat-youapp/common';
 
 export const registerSchema = z.object({
   body: z.object({

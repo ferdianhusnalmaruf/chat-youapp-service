@@ -1,22 +1,16 @@
 import { createApp } from '@/app';
 import { createServer } from 'http';
-import { env } from 'process';
+import { env } from '@/config/env';
 import { logger } from '@/utils/logger';
 import { initializedUserDatabase } from '@/db/sequelize';
-import { startAuthEventConsumer } from './messaging/auth-consumer';
+import { startAuthEventConsumer } from '@/messaging/auth-consumer';
+import { closePublisher, initPublisher } from '@/messaging/event-publishing';
 
 const bootstrap = async () => {
   try {
     await initializedUserDatabase();
+    await initPublisher();
     await startAuthEventConsumer();
-    // try {
-    // } catch (error) {
-    //   logger.error({ error }, `ERROR initializedUserDatabase`);
-    // }
-    // try {
-    // } catch (error) {
-    //   logger.error({ error }, `ERROR startAuthEventConsumer`);
-    // }
 
     const app = createApp();
     const server = createServer(app);
@@ -30,7 +24,7 @@ const bootstrap = async () => {
     const shutdown = () => {
       logger.info('Closed user service...');
 
-      Promise.all([])
+      Promise.all([closePublisher()])
         .catch((error: unknown) => {
           logger.error({ error }, 'Error during close the user service');
         })

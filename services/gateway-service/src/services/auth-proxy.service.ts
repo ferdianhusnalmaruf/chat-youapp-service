@@ -2,7 +2,6 @@ import { HttpError } from '@chat-youapp/common';
 import axios from 'axios';
 
 import { env } from '@/config/env';
-import { register } from 'node:module';
 
 const client = axios.create({
   baseURL: env.AUTH_SERVICE_URL,
@@ -11,7 +10,7 @@ const client = axios.create({
 
 const authHeader = {
   headers: {
-    'X-Internal-Token': env.INTERNAL_API_TOKEN,
+    'x-internal-token': env.INTERNAL_API_TOKEN,
   },
 } as const;
 

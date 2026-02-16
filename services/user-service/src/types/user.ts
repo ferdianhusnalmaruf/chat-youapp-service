@@ -10,7 +10,11 @@ export interface User {
   updatedAt: Date;
 }
 
-export interface CreatedUserInput {
+export interface CreateUserInput {
   email: string;
   username: string;
+  birthday?: Date;
+  height?: number;
+  weight?: number;
+  interests?: string[];
 }

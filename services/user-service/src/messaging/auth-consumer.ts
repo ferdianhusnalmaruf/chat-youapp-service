@@ -4,9 +4,16 @@ import { logger } from '@/utils/logger';
 import {
   AUTH_EVENT_EXCHANGE,
   AUTH_USER_REGISTERED_ROUTING_KEY,
-  AuthRegisteredEvent,
+  type AuthRegisteredEvent,
 } from '@chat-youapp/common';
-import { Channel, ChannelModel, connect, ConsumeMessage, Replies, type Connection } from 'amqplib';
+import {
+  type Channel,
+  type ChannelModel,
+  connect,
+  ConsumeMessage,
+  Replies,
+  type Connection,
+} from 'amqplib';
 
 type ManageConnection = Connection & ChannelModel;
 

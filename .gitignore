@@ -1,5 +1,6 @@
 # PACKAGE IGNORE
 /packages/common/dist
+/packages/common/node_modules
 
 # SERVICE IGNORE
 /services/auth-service/dist

@@ -23,7 +23,7 @@ export const createApp = (): Application => {
 
   app.use(
     createInternalAuthMiddleware(env.INTERNAL_API_TOKEN, {
-      exemptPaths: ['/health', '/auth/login', '/auth/register', '/auth/refresh', '/auth/revoke'],
+      exemptPaths: ['/auth/login', '/auth/register', '/auth/refresh', '/auth/revoke'],
     }),
   );
 

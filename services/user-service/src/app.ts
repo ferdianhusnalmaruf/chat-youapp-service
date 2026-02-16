@@ -4,6 +4,7 @@ import cors from 'cors';
 import { errorHandler } from '@/middleware/error-handler';
 import { createInternalAuthMiddleware } from '@chat-youapp/common';
 import { env } from '@/config/env';
+import { registerRoutes } from '@/routes';
 
 export const createApp = (): Application => {
   const app = express();
@@ -20,9 +21,11 @@ export const createApp = (): Application => {
   app.use(express.urlencoded({ extended: true }));
   app.use(
     createInternalAuthMiddleware(env.INTERNAL_API_TOKEN, {
-      exemptPaths: ['/users/health'],
+      exemptPaths: ['/users/health', '/users/:id', '/users'],
     }),
   );
+
+  registerRoutes(app);
 
   app.use((_req, res) => {
     res.status(404).json({ message: 'Not Found' });

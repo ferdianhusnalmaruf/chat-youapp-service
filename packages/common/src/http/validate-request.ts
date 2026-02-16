@@ -38,14 +38,18 @@ export const validateRequest = (schemas: RequestValidationSchemas) => {
 
       if (schemas.query) {
         const parsedQuery = schemas.query.parse(req.query) as QueryRecord;
-        req.query = parsedQuery as Request['query'];
-      }
 
+        if (req.query && typeof req.query === 'object') {
+          Object.assign(req.query as QueryRecord, parsedQuery);
+        }
+      }
       next();
     } catch (error) {
       if (error instanceof ZodError) {
         console.error('=== VALIDATION ERROR ===');
         console.error('Request body:', JSON.stringify(req.body, null, 2));
+        console.error('Request params:', JSON.stringify(req.params, null, 2));
+        console.error('Request query:', JSON.stringify(req.query, null, 2));
         console.error('Raw ZodError:', error); // ← Tambahkan ini
         console.error('ZodError.errors:', error.errors); // ← Tambahkan ini
 

@@ -9,6 +9,8 @@
 /services/gateway-service/node_modules
 /services/user-service/dist
 /services/user-service/node_modules
+/services/chat-service/dist
+/services/chat-service/node_modules
 
 # MAIN FOLDER IGNORE
 /node_modules

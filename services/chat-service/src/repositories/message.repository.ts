@@ -26,14 +26,14 @@ export const messageRepository = {
     const collection = client.db().collection(MESSAGE_COLLECTION);
     const now = new Date();
     const document = {
-      _id: new ObjectId(),
+      _id: randomUUID(),
       conversationId,
       senderId,
       body,
       createdAt: now,
     };
-    await collection.insertOne(document);
-    return toMessage(document as WithId<Document>);
+    await collection.insertOne(document as unknown as Document);
+    return toMessage(document as unknown as WithId<Document>);
   },
 
   async findByConversationId(

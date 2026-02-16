@@ -1,5 +1,5 @@
 import { UserModel } from '@/db';
-import type { CreateUserInput, User } from '@/types/user';
+import type { CreateUserInput, UpdateUserInput, User } from '@/types/user';
 import type { AuthUserRegisteredPayload } from '@chat-youapp/common';
 import { Op, WhereOptions } from 'sequelize';
 
@@ -37,6 +37,18 @@ export class UserRepository {
 
   async create(data: CreateUserInput): Promise<User> {
     const user = await UserModel.create(data);
+
+    return toDomainUser(user);
+  }
+
+  async updateUser(id: string, data: Partial<UpdateUserInput>): Promise<User> {
+    const user = await UserModel.findByPk(id);
+
+    if (!user) {
+      throw new Error(`User with id ${id} not found`);
+    }
+
+    await user.update(data);
 
     return toDomainUser(user);
   }

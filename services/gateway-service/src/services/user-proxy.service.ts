@@ -39,6 +39,13 @@ export interface CreateUserPayload {
   interests?: string[];
 }
 
+export interface UpdateUserPayload {
+  birthday?: string;
+  height?: string;
+  weight?: string;
+  interests?: string[];
+}
+
 const resolvedMessage = (status: number, data: unknown): string => {
   if (typeof data === 'object' && data && 'message' in data) {
     const message = (data as Record<string, unknown>).message;
@@ -75,6 +82,14 @@ export const userProxyService = {
   async createUser(payload: CreateUserPayload): Promise<UserResponse> {
     try {
       const response = await client.post<UserResponse>('/users', payload, authHeader);
+      return response.data;
+    } catch (error) {
+      return handleAxiosError(error);
+    }
+  },
+  async updateUser(id: string, payload: UpdateUserPayload): Promise<UserResponse> {
+    try {
+      const response = await client.patch<UserResponse>(`/users/${id}`, payload, authHeader);
       return response.data;
     } catch (error) {
       return handleAxiosError(error);

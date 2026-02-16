@@ -18,3 +18,12 @@ export interface CreateUserInput {
   weight?: number;
   interests?: string[];
 }
+
+export interface UpdateUserInput {
+  email: string;
+  username: string;
+  birthday?: Date;
+  height?: number;
+  weight?: number;
+  interests?: string[];
+}

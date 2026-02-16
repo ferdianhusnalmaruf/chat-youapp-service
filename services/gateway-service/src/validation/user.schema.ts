@@ -9,6 +9,13 @@ export const createUserSchema = z.object({
   interests: z.array(z.string()).optional(),
 });
 
+export const updateUserSchema = z.object({
+  birthday: z.string().optional(),
+  height: z.number().optional(),
+  weight: z.number().optional(),
+  interests: z.array(z.string()).optional(),
+});
+
 export const userIdpParamsSchema = z.object({
   id: z.string().uuid(),
 });

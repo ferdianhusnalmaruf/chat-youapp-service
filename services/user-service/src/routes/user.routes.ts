@@ -1,5 +1,9 @@
-import { createUserHandler, getUserHandler } from '@/controllers/user.controller';
-import { createUserSchema, userIdpParamsSchema } from '@/validation/user.schema';
+import {
+  createUserHandler,
+  getUserHandler,
+  updateUserHandler,
+} from '@/controllers/user.controller';
+import { createUserSchema, updateUserSchema, userIdpParamsSchema } from '@/validation/user.schema';
 import { asyncHandler, validateRequest } from '@chat-youapp/common';
 import { Router } from 'express';
 
@@ -10,8 +14,9 @@ userRoutes.get(
   validateRequest({ params: userIdpParamsSchema }),
   asyncHandler(getUserHandler),
 );
-userRoutes.post(
-  '/',
-  validateRequest({ body: createUserSchema }),
-  asyncHandler(createUserHandler),
+userRoutes.post('/', validateRequest({ body: createUserSchema }), asyncHandler(createUserHandler));
+userRoutes.patch(
+  '/:id',
+  validateRequest({ params: userIdpParamsSchema, body: updateUserSchema }),
+  asyncHandler(updateUserHandler),
 );

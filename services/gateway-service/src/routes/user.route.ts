@@ -1,6 +1,10 @@
-import { createUserHandler, getUserHandler } from '@/controllers/user.controller';
+import {
+  createUserHandler,
+  getUserHandler,
+  updateUserHandler,
+} from '@/controllers/user.controller';
 import { requireAuth } from '@/middleware/require-auth';
-import { createUserSchema, userIdpParamsSchema } from '@/validation/user.schema';
+import { createUserSchema, updateUserSchema, userIdpParamsSchema } from '@/validation/user.schema';
 import { asyncHandler, validateRequest } from '@chat-youapp/common';
 import { Router } from 'express';
 
@@ -17,4 +21,10 @@ userRouter.post(
   requireAuth,
   validateRequest({ body: createUserSchema }),
   asyncHandler(createUserHandler),
+);
+userRouter.put(
+  '/:id',
+  requireAuth,
+  validateRequest({ params: userIdpParamsSchema, body: updateUserSchema }),
+  asyncHandler(updateUserHandler),
 );

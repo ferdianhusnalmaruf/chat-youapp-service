@@ -1,0 +1,1298 @@
+{
+  "info": {
+    "_postman_id": "6e1e68e0-dcd6-4b6c-9937-15972cea885d",
+    "name": "CHAT-YOUAPP",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "AUTH SERVICE",
+      "item": [
+        {
+          "name": "Register",
+          "id": "b96b225c-231c-4401-9e9d-c9f6e01454cb",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"danang\",\r\n    \"email\": \"danang@gmail.com\",\r\n    \"password\": \"password123\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "395c996e-1bcd-4e91-8fc9-fca45bd53591",
+              "name": "Register",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"username\": \"danang\",\r\n    \"email\": \"danang@gmail.com\",\r\n    \"password\": \"password123\"\r\n\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:4000/api/auth/register",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "652"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"28c-tPwW8z7GQ3PGYG1PIaRSu7X1x38\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 16 Feb 2026 13:16:38 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "2026-02-16T13:44:43.984Z",
+              "body": "{\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWIwODY5Ny01OWY4LTRlZDMtOGE5ZS0yM2QxYzlhYjhmNDUiLCJlbWFpbCI6ImRhbmFuZ0BnbWFpbC5jb20iLCJpYXQiOjE3NzEyNDc3OTgsImV4cCI6MTc3MTMzNDE5OH0.515-WxrSnM2aUQOCBN27dWwSiNYH4d3sv1j5SLXRrlM\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWIwODY5Ny01OWY4LTRlZDMtOGE5ZS0yM2QxYzlhYjhmNDUiLCJ0b2tlbklkIjoiMTk0OTYzMTItZmE3NC00OGQxLWI0OGQtYTI4YmU1ODJlYmU1IiwiaWF0IjoxNzcxMjQ3Nzk4LCJleHAiOjE3NzM4Mzk3OTh9.Ad8DTXrD24hkmnrRNCupyhmQj7JaGr3qfRMBes_o6WM\",\n    \"user\": {\n        \"id\": \"69b08697-59f8-4ed3-8a9e-23d1c9ab8f45\",\n        \"email\": \"danang@gmail.com\",\n        \"username\": \"danang\",\n        \"createdAt\": \"2026-02-16T13:16:37.950Z\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Login",
+          "id": "50417e5a-ea29-445c-a35b-130000122c22",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"danang\",\r\n    \"email\": \"danang@gmail.com\",\r\n    \"password\": \"password123\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "778ca422-a2e0-492a-a669-903326e4a6dc",
+              "name": "Login",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"danang@gmail.com\",\r\n    \"password\": \"password123\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:4000/api/auth/login",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "513"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"201-3Hl2LAyy2Jog77ZlPSLC03ZrstY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 16 Feb 2026 13:17:27 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "2026-02-16T13:44:40.774Z",
+              "body": "{\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWIwODY5Ny01OWY4LTRlZDMtOGE5ZS0yM2QxYzlhYjhmNDUiLCJlbWFpbCI6ImRhbmFuZ0BnbWFpbC5jb20iLCJpYXQiOjE3NzEyNDc4NDcsImV4cCI6MTc3MTMzNDI0N30.cds4CG1f6WfwFzXcwUSdOmezgqY9jNH8KSDSWWDy8Eo\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWIwODY5Ny01OWY4LTRlZDMtOGE5ZS0yM2QxYzlhYjhmNDUiLCJ0b2tlbklkIjoiZWE0OTE1ZjYtYTdhYS00NDdlLTkwMWItMzFlODEwZmQ3YTE4IiwiaWF0IjoxNzcxMjQ3ODQ3LCJleHAiOjE3NzM4Mzk4NDd9.SR7ZdZ4rhclr3JsJu1Pu6ty5YwITOZ3uHZNm7O8VVsk\"\n}"
+            }
+          ]
+        }
+      ],
+      "id": "c5086d21-d7d5-48b8-8d97-f89334b75be7"
+    },
+    {
+      "name": "User Service",
+      "item": [
+        {
+          "name": "Update user",
+          "id": "93f54325-9385-4a3f-959f-f8ee387c6784",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWIwODY5Ny01OWY4LTRlZDMtOGE5ZS0yM2QxYzlhYjhmNDUiLCJlbWFpbCI6ImRhbmFuZ0BnbWFpbC5jb20iLCJpYXQiOjE3NzEyNDc4NDcsImV4cCI6MTc3MTMzNDI0N30.cds4CG1f6WfwFzXcwUSdOmezgqY9jNH8KSDSWWDy8E",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"birthday\": \"2000-12-12\",\r\n  \"height\": 170,\r\n  \"weight\": 63,\r\n  \"interests\": [\"baik\", \"caem\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/users/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "users",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "69b08697-59f8-4ed3-8a9e-23d1c9ab8f45"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bbcddb44-64f9-4cb1-a5f1-2558af86180c",
+              "name": "Update user",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"birthday\": \"2000-12-12\",\r\n  \"height\": 170,\r\n  \"weight\": 63,\r\n  \"interests\": [\"baik\", \"caem\"]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:4000/api/users/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "users",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "69b08697-59f8-4ed3-8a9e-23d1c9ab8f45"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "270"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"10e-gUXfn32hOpLQBLExnRjrBVb8hAs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 16 Feb 2026 13:32:50 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "2026-02-16T13:44:34.163Z",
+              "body": "{\n    \"data\": {\n        \"id\": \"69b08697-59f8-4ed3-8a9e-23d1c9ab8f45\",\n        \"email\": \"danang@gmail.com\",\n        \"username\": \"danang\",\n        \"birthday\": \"2000-12-12T00:00:00.000Z\",\n        \"height\": 170,\n        \"weight\": 63,\n        \"interests\": [\n            \"baik\",\n            \"caem\"\n        ],\n        \"createdAt\": \"2026-02-16T13:16:38.091Z\",\n        \"updatedAt\": \"2026-02-16T13:32:50.291Z\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create User",
+          "id": "b27d17b3-7734-4af6-9d2b-2a039d4d892c",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWIwODY5Ny01OWY4LTRlZDMtOGE5ZS0yM2QxYzlhYjhmNDUiLCJlbWFpbCI6ImRhbmFuZ0BnbWFpbC5jb20iLCJpYXQiOjE3NzEyNDc4NDcsImV4cCI6MTc3MTMzNDI0N30.cds4CG1f6WfwFzXcwUSdOmezgqY9jNH8KSDSWWDy8Eo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"ferdianhm@aja.com\",\r\n  \"username\": \"ferd\",\r\n  \"birthday\": \"2000-12-12\",\r\n  \"height\": 170,\r\n  \"weight\": 63,\r\n  \"interests\": [\"baik\", \"caem\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "004baf85-1732-4261-af95-780df9cbd9c9",
+              "name": "Create User",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"ferdianhm@aja.com\",\r\n  \"username\": \"ferd\",\r\n  \"birthday\": \"2000-12-12\",\r\n  \"height\": 170,\r\n  \"weight\": 63,\r\n  \"interests\": [\"baik\", \"caem\"]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:4000/api/users",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "users"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "269"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"10d-uZuyJGw1uHyPeN/XEhC2wAl+htE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 16 Feb 2026 13:35:38 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "2026-02-16T13:44:37.085Z",
+              "body": "{\n    \"data\": {\n        \"id\": \"abdc335e-d26a-41fd-98f2-23a42dc3861e\",\n        \"email\": \"ferdianhm@aja.com\",\n        \"username\": \"ferd\",\n        \"birthday\": \"2000-12-12T00:00:00.000Z\",\n        \"height\": 170,\n        \"weight\": 63,\n        \"interests\": [\n            \"baik\",\n            \"caem\"\n        ],\n        \"createdAt\": \"2026-02-16T13:35:38.864Z\",\n        \"updatedAt\": \"2026-02-16T13:35:38.864Z\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get User",
+          "id": "c981ec6c-5dab-40a2-8bc6-d5e329384581",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWIwODY5Ny01OWY4LTRlZDMtOGE5ZS0yM2QxYzlhYjhmNDUiLCJlbWFpbCI6ImRhbmFuZ0BnbWFpbC5jb20iLCJpYXQiOjE3NzEyNDc4NDcsImV4cCI6MTc3MTMzNDI0N30.cds4CG1f6WfwFzXcwUSdOmezgqY9jNH8KSDSWWDy8Eo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/users/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "users",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "69b08697-59f8-4ed3-8a9e-23d1c9ab8f45"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4bb542d0-ab8f-46bc-ba7f-23b5c64a921f",
+              "name": "Get User",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:4000/api/users/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "users",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "69b08697-59f8-4ed3-8a9e-23d1c9ab8f45"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "270"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"10e-gUXfn32hOpLQBLExnRjrBVb8hAs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 16 Feb 2026 13:37:26 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "2026-02-16T13:44:30.058Z",
+              "body": "{\n    \"data\": {\n        \"id\": \"69b08697-59f8-4ed3-8a9e-23d1c9ab8f45\",\n        \"email\": \"danang@gmail.com\",\n        \"username\": \"danang\",\n        \"birthday\": \"2000-12-12T00:00:00.000Z\",\n        \"height\": 170,\n        \"weight\": 63,\n        \"interests\": [\n            \"baik\",\n            \"caem\"\n        ],\n        \"createdAt\": \"2026-02-16T13:16:38.091Z\",\n        \"updatedAt\": \"2026-02-16T13:32:50.291Z\"\n    }\n}"
+            }
+          ]
+        }
+      ],
+      "id": "b4e9d067-3dae-4259-9496-4113729ae59b"
+    },
+    {
+      "name": "Chat Service",
+      "item": [
+        {
+          "name": "Create Conversation",
+          "id": "5c8a6eba-2578-4a1b-9986-8251f3235faf",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWIwODY5Ny01OWY4LTRlZDMtOGE5ZS0yM2QxYzlhYjhmNDUiLCJlbWFpbCI6ImRhbmFuZ0BnbWFpbC5jb20iLCJpYXQiOjE3NzEyNDc4NDcsImV4cCI6MTc3MTMzNDI0N30.cds4CG1f6WfwFzXcwUSdOmezgqY9jNH8KSDSWWDy8Eo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Danang and Ferdian\",\r\n  \"participantIds\": [\"69b08697-59f8-4ed3-8a9e-23d1c9ab8f45\", \"f291c496-0794-4e5b-94f5-758e1c12f2fe\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/conversations",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "conversations"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9f736a10-2e51-4a71-9597-3c0ef1b6af8b",
+              "name": "Create Conversation",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"Danang and Ferdian\",\r\n  \"participantIds\": [\"69b08697-59f8-4ed3-8a9e-23d1c9ab8f45\", \"f291c496-0794-4e5b-94f5-758e1c12f2fe\"]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:4000/api/conversations",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "conversations"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "305"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"131-07JioSfxW+95fiiw0zYEsFRZ23Q\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 16 Feb 2026 13:41:20 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "2026-02-16T13:44:22.016Z",
+              "body": "{\n    \"data\": {\n        \"id\": \"ab831b3a-a660-468e-af35-2ed257b49ca1\",\n        \"title\": \"Danang and Ferdian\",\n        \"participantIds\": [\n            \"69b08697-59f8-4ed3-8a9e-23d1c9ab8f45\",\n            \"f291c496-0794-4e5b-94f5-758e1c12f2fe\"\n        ],\n        \"createdAt\": \"2026-02-16T13:41:20.269Z\",\n        \"updatedAt\": \"2026-02-16T13:41:20.269Z\",\n        \"lastMessageAt\": null,\n        \"lastMessagePreview\": null\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create Message in Conversation",
+          "id": "5f0a5e91-154f-4f45-9dd5-680bc91b0368",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWIwODY5Ny01OWY4LTRlZDMtOGE5ZS0yM2QxYzlhYjhmNDUiLCJlbWFpbCI6ImRhbmFuZ0BnbWFpbC5jb20iLCJpYXQiOjE3NzEyNDc4NDcsImV4cCI6MTc3MTMzNDI0N30.cds4CG1f6WfwFzXcwUSdOmezgqY9jNH8KSDSWWDy8Eo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"body\": \"Start from danang\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/conversations/:id/messages",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "conversations",
+                ":id",
+                "messages"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "ab831b3a-a660-468e-af35-2ed257b49ca1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c9bbdf40-7315-4f1f-9d1c-2750a5397f9f",
+              "name": "Create Message in Conversation",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"body\": \"Start from danang\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:4000/api/conversations/:id/messages",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "conversations",
+                    ":id",
+                    "messages"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "ab831b3a-a660-468e-af35-2ed257b49ca1"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "241"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"f1-i9wj1appPyl11fGDFUAqcwtjxks\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 16 Feb 2026 13:42:52 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "2026-02-16T13:44:18.089Z",
+              "body": "{\n    \"data\": {\n        \"id\": \"e9a8fbf2-3bce-4bcc-aa36-54e8f6555b63\",\n        \"conversationId\": \"ab831b3a-a660-468e-af35-2ed257b49ca1\",\n        \"senderId\": \"69b08697-59f8-4ed3-8a9e-23d1c9ab8f45\",\n        \"body\": \"Start from danang\",\n        \"createdAt\": \"2026-02-16T13:42:52.736Z\",\n        \"reactions\": []\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "List Messages in Conversation",
+          "id": "6359b3d4-8aef-4ad8-af81-76006ebee0d3",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWIwODY5Ny01OWY4LTRlZDMtOGE5ZS0yM2QxYzlhYjhmNDUiLCJlbWFpbCI6ImRhbmFuZ0BnbWFpbC5jb20iLCJpYXQiOjE3NzEyNDc4NDcsImV4cCI6MTc3MTMzNDI0N30.cds4CG1f6WfwFzXcwUSdOmezgqY9jNH8KSDSWWDy8Eo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/users/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "users",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "69b08697-59f8-4ed3-8a9e-23d1c9ab8f45"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f24ce4b4-b0aa-4058-9b2a-8a83dccd3c6c",
+              "name": "List Messages in Conversation",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:4000/api/conversations/:id/messages",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "conversations",
+                    ":id",
+                    "messages"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "ab831b3a-a660-468e-af35-2ed257b49ca1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "243"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"f3-zwjxaG37zGBUZOoOePmh8yb98fI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 16 Feb 2026 13:44:06 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "2026-02-16T13:44:25.795Z",
+              "body": "{\n    \"data\": [\n        {\n            \"id\": \"e9a8fbf2-3bce-4bcc-aa36-54e8f6555b63\",\n            \"conversationId\": \"ab831b3a-a660-468e-af35-2ed257b49ca1\",\n            \"senderId\": \"69b08697-59f8-4ed3-8a9e-23d1c9ab8f45\",\n            \"body\": \"Start from danang\",\n            \"createdAt\": \"2026-02-16T13:42:52.736Z\",\n            \"reactions\": []\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ],
+      "id": "ffbaa23d-aebc-4df9-98c2-f217bde4b59f"
+    }
+  ]
+}

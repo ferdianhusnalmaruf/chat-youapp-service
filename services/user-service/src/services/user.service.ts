@@ -1,6 +1,6 @@
 import { publishUserCreatedEvent } from '@/messaging/event-publishing';
 import { userRepository, UserRepository } from '@/repositories/user.repositories';
-import { CreateUserInput, User } from '@/types/user';
+import { CreateUserInput, UpdateUserInput, User } from '@/types/user';
 import { AuthUserRegisteredPayload, HttpError } from '@chat-youapp/common';
 import { UniqueConstraintError } from 'sequelize';
 
@@ -18,6 +18,7 @@ class UserService {
       height: user.height,
       interests: user.interests ?? [],
       createdAt: user.createdAt.toISOString(),
+      updatedAt: user.updatedAt.toISOString(),
     });
     return user;
   }
@@ -45,6 +46,32 @@ class UserService {
         height: user.height,
         interests: user.interests ?? [],
         createdAt: user.createdAt.toISOString(),
+        updatedAt: user.updatedAt.toISOString(),
+      });
+
+      return user;
+    } catch (error) {
+      if (error instanceof UniqueConstraintError) {
+        throw new HttpError(409, 'The user already exists ');
+      }
+      throw error;
+    }
+  }
+
+  async updateUser(id: string, input: Partial<UpdateUserInput>): Promise<User> {
+    try {
+      const user = await this.respository.updateUser(id, input);
+
+      void publishUserCreatedEvent({
+        id: user.id,
+        username: user.username,
+        email: user.email,
+        birthday: user.birthday?.toISOString(),
+        weight: user.weight,
+        height: user.height,
+        interests: user.interests ?? [],
+        createdAt: user.createdAt.toISOString(),
+        updatedAt: user.updatedAt.toISOString(),
       });
 
       return user;

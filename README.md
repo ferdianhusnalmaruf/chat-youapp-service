@@ -60,6 +60,47 @@ pnpm --filter @chat-youapp/gateway-service dev
 - `pnpm format` - cek format.
 - `pnpm test` - jalankan test (sebagian service masih placeholder).
 
+## Socket.IO (Chat Service)
+
+Realtime chat tersedia di `@chat-youapp/chat-service` pada port `CHAT_SERVICE_PORT`.
+
+### Autentikasi Socket
+
+Saat konek ke Socket.IO, kirim konteks user dengan salah satu cara berikut:
+
+- `auth.userId` (disarankan)
+- header `x-user-id`
+
+Contoh client:
+
+```ts
+import { io } from 'socket.io-client';
+
+const socket = io('http://localhost:4000', {
+  auth: {
+    userId: 'USER_UUID',
+  },
+});
+```
+
+### Event Client -> Server
+
+- `join_conversation` payload: `{ conversationId: string }`
+- `leave_conversation` payload: `{ conversationId: string }`
+- `send_message` payload: `{ conversationId: string, body: string }`
+
+### Event Server -> Client
+
+- `message_created` payload: object message yang baru dibuat
+- `socket_error` payload: `{ message: string }`
+
+### Alur Realtime Singkat
+
+1. Client connect dengan `userId` valid.
+2. Client emit `join_conversation` untuk room tertentu.
+3. Client emit `send_message`.
+4. Server simpan message ke MongoDB lalu broadcast `message_created` ke room conversation tersebut.
+
 ## Catatan
 
 - Pastikan database dan RabbitMQ sudah berjalan sebelum menjalankan service.

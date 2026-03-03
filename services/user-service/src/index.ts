@@ -18,7 +18,7 @@ const bootstrap = async () => {
     const port = env.USER_SERVICE_PORT;
 
     server.listen(port, () => {
-      logger.info({ port }, 'User service start running');
+      logger.info({ port }, 'User sedcsfrvice start running');
     });
 
     const shutdown = () => {

@@ -1,10 +1,12 @@
 import { createApp } from '@/app';
 import { createServer } from 'http';
-import { env } from 'process';
 import { logger } from '@/utils/logger';
 import { closeMongoClient, getMongoClient } from '@/clients/mongo.client';
 import { connectRedis, disconnectRedis } from '@/clients/redis.client';
-import { closeUserEventConnection, startUserEventConsumer } from '@/messaging/rmq.consumer';
+import { startUserEventConsumer } from '@/messaging/rmq.consumer';
+import { Server } from 'socket.io';
+import { env } from '@/config/env';
+import { registerSocketServer } from '@/socket/server';
 
 const bootstrap = async () => {
   try {
@@ -15,12 +17,22 @@ const bootstrap = async () => {
 
     const port = env.CHAT_SERVICE_PORT;
 
+    const io = new Server(server, {
+      cors: {
+        origin: '*',
+        credentials: true,
+      },
+    });
+
+    registerSocketServer(io);
+
     server.listen(port, () => {
       logger.info({ port }, 'Chat service start running');
     });
-
     const shutdown = () => {
       logger.info('Closed chat service...');
+
+      io.close();
 
       Promise.all([closeMongoClient(), disconnectRedis()])
         .catch((error: unknown) => {

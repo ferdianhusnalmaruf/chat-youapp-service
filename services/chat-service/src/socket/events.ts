@@ -5,6 +5,7 @@ export const CHAT_EVENTS = {
   LEAVE_CONVERSATION: 'leave_conversation',
   SEND_MESSAGE: 'send_message',
   MESSAGE_CREATED: 'message_created',
+  MESSAGE_RECEIVED: 'message_received',
   SOCKET_ERROR: 'socket_error',
 } as const;
 

@@ -15,6 +15,7 @@ import {
 const userIdSchema = z.string().uuid();
 
 const roomName = (conversationId: string) => `conversation:${conversationId}`;
+const userRoomName = (userId: string) => `user:${userId}`;
 
 const getSocketUser = (socket: Socket): AuthenticationUser => {
   const user = socket.data.user as AuthenticationUser | undefined;
@@ -59,6 +60,18 @@ const onSendMessage = async (
   const message = await messageService.createMessage(payload.conversationId, user.id, payload.body);
 
   io.to(roomName(payload.conversationId)).emit(CHAT_EVENTS.MESSAGE_CREATED, message);
+
+  const conversation = await conversationService.getConversationById(payload.conversationId);
+  const recipientIds = conversation.participantIds.filter(
+    (participantId) => participantId !== user.id,
+  );
+
+  for (const recipientId of recipientIds) {
+    io.to(userRoomName(recipientId)).emit(CHAT_EVENTS.MESSAGE_RECEIVED, {
+      conversationId: payload.conversationId,
+      message,
+    });
+  }
 };
 
 export const registerSocketServer = (io: Server): void => {
@@ -68,21 +81,54 @@ export const registerSocketServer = (io: Server): void => {
       const headerUserId = socket.handshake.headers[USER_ID_HEADER] as string | undefined;
       const userId = userIdSchema.parse(authUserId ?? headerUserId);
 
+      logger.info(
+        {
+          socketId: socket.id,
+          authUserId: authUserId ?? null,
+          headerUserId: headerUserId ?? null,
+          transport: socket.handshake?.query?.transport ?? null,
+        },
+        'Socket handshake validated',
+      );
+
       socket.data.user = { id: userId };
 
       next();
-    } catch {
+    } catch (error) {
+      logger.warn(
+        {
+          socketId: socket.id,
+          authUserId: socket.handshake.auth.userId ?? null,
+          headerUserId: socket.handshake.headers[USER_ID_HEADER] ?? null,
+          error: error instanceof Error ? error.message : error,
+        },
+        'Socket handshake rejected',
+      );
       next(new Error('Invalid or missing user context'));
     }
   });
 
+  io.engine.on('connection_error', (error) => {
+    logger.warn(
+      {
+        code: error.code,
+        message: error.message,
+        context: error.context,
+        reqUrl: error.req?.url ?? null,
+      },
+      'Socket engine connection error',
+    );
+  });
+
   io.on('connection', (socket) => {
     const user = socket.data.user as AuthenticationUser;
+    socket.join(userRoomName(user.id));
     logger.info({ socketId: socket.id, userId: user.id }, 'Socket connected');
 
     socket.on(CHAT_EVENTS.JOIN_CONVERSATION, async (rawPayload: unknown) => {
       try {
         const payload = roomEventSchema.parse(rawPayload);
+        logger.info({ socketId: socket.id, userId: user.id, payload }, 'Join conversation event');
         await onJoinConversation(socket, payload);
       } catch (error) {
         emitSocketError(socket, error);
@@ -92,6 +138,7 @@ export const registerSocketServer = (io: Server): void => {
     socket.on(CHAT_EVENTS.LEAVE_CONVERSATION, async (rawPayload: unknown) => {
       try {
         const payload = roomEventSchema.parse(rawPayload);
+        logger.info({ socketId: socket.id, userId: user.id, payload }, 'Leave conversation event');
         await onLeaveConversation(socket, payload);
       } catch (error) {
         emitSocketError(socket, error);
@@ -101,6 +148,7 @@ export const registerSocketServer = (io: Server): void => {
     socket.on(CHAT_EVENTS.SEND_MESSAGE, async (rawPayload: unknown) => {
       try {
         const payload = sendMessageEventSchema.parse(rawPayload);
+        logger.info({ socketId: socket.id, userId: user.id, payload }, 'Send message event');
         await onSendMessage(io, socket, payload);
       } catch (error) {
         emitSocketError(socket, error);

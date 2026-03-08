@@ -15,7 +15,7 @@ export const envSchema = z.object({
 type EnvType = z.infer<typeof envSchema>;
 
 export const env: EnvType = createEnv(envSchema, {
-  serviceName: 'gateway-service',
+  serviceName: 'chat-service',
 });
 
 export type Env = typeof env;

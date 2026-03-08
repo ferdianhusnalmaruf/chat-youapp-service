@@ -92,6 +92,7 @@ const socket = io('http://localhost:4000', {
 ### Event Server -> Client
 
 - `message_created` payload: object message yang baru dibuat
+- `message_received` payload: `{ conversationId: string, message: Message }` untuk notifikasi ke tiap participant (selain pengirim)
 - `socket_error` payload: `{ message: string }`
 
 ### Alur Realtime Singkat
@@ -100,6 +101,7 @@ const socket = io('http://localhost:4000', {
 2. Client emit `join_conversation` untuk room tertentu.
 3. Client emit `send_message`.
 4. Server simpan message ke MongoDB lalu broadcast `message_created` ke room conversation tersebut.
+5. Server emit `message_received` ke room personal setiap participant conversation (kecuali pengirim).
 
 ## Catatan
 
